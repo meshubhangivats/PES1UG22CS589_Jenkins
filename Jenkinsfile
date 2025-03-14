@@ -4,13 +4,13 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Building the application...'
-                sh 'g++ main.cpp -o output'
+                sh 'g++ main.cpp -o output || exit 1'
             }
         }
         stage('Test') {
             steps {
                 echo 'Running tests...'
-                sh './output
+                sh './output'
             }
         }
         stage('Deploy') {

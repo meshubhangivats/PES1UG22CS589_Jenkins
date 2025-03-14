@@ -3,13 +3,12 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Building the application...'
-                sh 'g++ main.cpp -o output || exit 1'
+                build 'PES1UG22CS589-1'
+                sh 'g++ main.cpp -o output'
             }
         }
         stage('Test') {
             steps {
-                echo 'Running tests...'
                 sh './output'
             }
         }
